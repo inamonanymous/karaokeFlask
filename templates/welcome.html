@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <h1>VIDEOKE NI PANOT WORKS</h1>
+    <p>Search for song title</p>
+    <form action="/search" method="get">
+        <input autofocus name="q" type="search" placeholder="Song title here"></input>
+        <button type="submit" style="color: black;">Search</button>
+    </form>
+
+{% endblock %}
