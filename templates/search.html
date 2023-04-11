@@ -2,8 +2,8 @@
 {% block body %}
     <h3>Title -> ID -> Artist</h1>
     <ul>
-        {% for song in songlist %}
-            <li>{{ song["title"], song["id"], song["artist"] }}</li>
+        {% for i in songlist %}
+            <li>{{ i["title"], i["id"], i["artist"] }}</li>
         {% endfor %}    
     </ul>
 {% endblock %}

@@ -11,8 +11,14 @@ def index():
 @app.route("/search", methods=["GET"])
 def search():
     #query = str(request.args.get('q'))
-    song = db.execute('SELECT * FROM songlist WHERE title LIKE ? ORDER BY title ASC', '%' + request.args.get('q') + '%')
-    return render_template("/search.html", songlist=song)
+    #song = db.execute('SELECT * FROM songlist WHERE title LIKE ? ORDER BY title ASC', '%' + request.args.get('q') + '%')
+    #return render_template("/search.html", songlist=song)
+    q = request.args.get("q")
+    if q:
+        song = db.execute("SELECT * FROM songlist WHERE title LIKE ? LIMIT 50", "%" + q + "%")
+    else:
+        song = []
+    return render_template("search.html", songlist=song)
 
 @app.route("/index", methods=["POST"])
 def welcome():

@@ -3,9 +3,22 @@
 
     <h1>VIDEOKE NI PANOT WORKS</h1>
     <p>Search for song title</p>
-    <form action="/search" method="get">
-        <input autofocus name="q" type="search" placeholder="Song title here"></input>
-        <button type="submit" style="color: black;">Search</button>
+    <form action="/search" method="get" id="myForm">
+        <input autocomplete="off" autofocus name="q" type="search" placeholder="Song title here"></input>
+        
     </form>
+
+    <ul></ul>
+
+    <script>
+    
+        let input = document.querySelector('#myForm input[name="q"]');
+        input.addEventListener('input', async function() {
+        let response = await fetch('/search?q=' + input.value);
+        let shows = await response.text();
+        document.querySelector('ul').innerHTML = shows;
+        });
+
+    </script>
 
 {% endblock %}
