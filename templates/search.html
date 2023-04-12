@@ -3,7 +3,8 @@
     <h3>Title -> ID -> Artist</h1>
     <ul>
         {% for i in songlist %}
-            <li>{{ i["title"], i["id"], i["artist"] }}</li>
+            <li>{{ i["title"] }} -> {{ i["id"] }} -> {{ i["artist"] }}</li>
+            <br>
         {% endfor %}    
     </ul>
 {% endblock %}

@@ -15,8 +15,8 @@
         let input = document.querySelector('#myForm input[name="q"]');
         input.addEventListener('input', async function() {
         let response = await fetch('/search?q=' + input.value);
-        let shows = await response.text();
-        document.querySelector('ul').innerHTML = shows;
+        let songs = await response.text();
+        document.querySelector('ul').innerHTML = songs;
         });
 
     </script>

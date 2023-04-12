@@ -19,7 +19,6 @@ def search():
 
 @app.route("/index", methods=["POST"])
 def welcome():
-    isClicked = "submit_clicked" in request.form
-    if not isClicked:
+    if not "submit_clicked" in request.form:
         return render_template("/index.html")
-    return render_template("/welcome.html", submitClicked=isClicked)
+    return render_template("/welcome.html")
